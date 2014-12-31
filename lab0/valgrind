@@ -1,0 +1,43 @@
+ int* heap_array = (int*) malloc(sizeof(int) * 5);
+  fillArray(heap_array, 5);
+  // Now that we have finished with the heap-allocated
+  // array, free() the memory associated with it.
+  //
+  // TODO(3): What happens if we remove the free()
+  // statement below? Try running "valgrind ./arrays"
+  // after compiling the program both with and without
+  // it. valgrind is a tool for analyzing how programs
+  // use memory, which is often invaluable for C and
+  // C++ programming.
+  // Answer:
+  //free(heap_array);
+
+bash-4.2$ valgrind ./arrays
+==6304== Memcheck, a memory error detector
+==6304== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==6304== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==6304== Command: ./arrays
+==6304== 
+Filling an array at address 0x7ff0005c0 with 10 values
+Done!
+Filling an array at address 0x7ff0005bc with 1 values
+Done!
+Filling an array at address 0x7ff0005a0 with 4 values
+Done!
+Filling an array at address 0x51e8040 with 5 values
+Done!
+==6304== 
+==6304== HEAP SUMMARY:
+==6304==     in use at exit: 20 bytes in 1 blocks
+==6304==   total heap usage: 1 allocs, 0 frees, 20 bytes allocated
+==6304== 
+==6304== LEAK SUMMARY:
+==6304==    definitely lost: 20 bytes in 1 blocks
+==6304==    indirectly lost: 0 bytes in 0 blocks
+==6304==      possibly lost: 0 bytes in 0 blocks
+==6304==    still reachable: 0 bytes in 0 blocks
+==6304==         suppressed: 0 bytes in 0 blocks
+==6304== Rerun with --leak-check=full to see details of leaked memory
+==6304== 
+==6304== For counts of detected and suppressed errors, rerun with: -v
+==6304== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
